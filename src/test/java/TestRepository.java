@@ -64,6 +64,9 @@ public class TestRepository {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    /**
+     * Поиска по наименованию с результатом 0
+     */
     @Test
     public void testSearchNegative() {
         manager.add(product1);
