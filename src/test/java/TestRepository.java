@@ -80,17 +80,17 @@ public class TestRepository {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-//    @Test
-//    public void testNotFoundException(){
-//        manager.add(product1);
-//        manager.add(product2);
-//        manager.add(product3);
-//        manager.add(product4);
-//        manager.add(product5);
-//
-//       Assertions.assertThrows(NotFoundException.class, () ->{
-//           repository.deleteId(6);
-//       });
+    @Test
+    public void testNotFoundException(){
+        manager.add(product1);
+        manager.add(product2);
+        manager.add(product3);
+        manager.add(product4);
+        manager.add(product5);
+
+       Assertions.assertThrows(NotFoundException.class, () ->{
+           repository.deleteId(6);
+       });
 
 
     }
