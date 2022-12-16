@@ -29,12 +29,33 @@ public class Repository {
         return products;
     }
 
+
+    /**
+     * @param id - Объект поиска
+     * @return - возращаем продукт или нуль
+     * @searchById - поиск по id
+     */
+    public Product searchById(int id){
+        for (Product product : products) {
+            if (product.getId() == id){
+                return product;
+
+            }
+        }
+        return null;
+    }
+
     /**
      * @param id - удаляемый объект
      * @return - возвращаем массив Product без удаляемого объекта
-     * @deletID - удаление объекта по ID
+     * @deleteID - удаление объекта по ID
      */
-    public Product[] deletId(int id) {
+    public Product[] deleteId(int id) {
+        if(searchById(id) == null){
+            throw new NotFoundException(
+                    "Элемент с id: " + id + "не найден"
+            );
+        }
         int productsWithoutId = products.length - 1;
         Product[] tmp = new Product[productsWithoutId];
         int position = 0;

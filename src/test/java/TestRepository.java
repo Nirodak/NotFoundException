@@ -41,7 +41,7 @@ public class TestRepository {
         repository.add(product3);
         repository.add(product4);
 
-        repository.deletId(product4.getId());
+        repository.deleteId(product4.getId());
 
         Product[] expected = {product1, product2, product3};
         Assertions.assertArrayEquals(expected, repository.findAll());
@@ -79,5 +79,19 @@ public class TestRepository {
         Product[] actual = manager.searchBy("Колобок");
 
         Assertions.assertArrayEquals(expected, actual);
+    }
+//    @Test
+//    public void testNotFoundException(){
+//        manager.add(product1);
+//        manager.add(product2);
+//        manager.add(product3);
+//        manager.add(product4);
+//        manager.add(product5);
+//
+//       Assertions.assertThrows(NotFoundException.class, () ->{
+//           repository.deleteId(6);
+//       });
+
+
     }
 }
